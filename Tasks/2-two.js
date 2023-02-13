@@ -10,6 +10,7 @@ const task2 = {
         if(animal.name === species) return animal.count;
         
       }
+      return 0;
     },
 
     getAllAnimalsCount() {
@@ -39,13 +40,15 @@ const task2 = {
       return sorted;
     },
 
-    addAnimal(species, amount) {
+    addAnimal(species, amount = 1) {
+      typeof species !== 'string' ? species = species + '' : species;
+      typeof amount !== 'number' ? amount = +amount : amount;
       const animal = {
         name: species,
         count: amount,
       }
       this.zoo.push(animal);
-      return this.zoo;
+      return undefined;
     },
 
     getAnimals() {
@@ -60,7 +63,7 @@ const task2 = {
 
       const toDelete = this.zoo.findIndex(searchFunc);
       this.zoo.splice(toDelete, 1);
-      return this.zoo;
+      return undefined;
     },
 
     checkAnimal(name) {
@@ -82,6 +85,7 @@ const task2 = {
         if(animal.name === species) return animal.count;
         
       }
+      return 0;
     },
 
     getAllAnimalsCount() {
@@ -107,7 +111,10 @@ const task2 = {
     },
 
     getSortedZoo() {
-      const sorted = this.zoo;
+      const sorted = [];
+      for(const animal of this.zoo) {
+        sorted[sorted.length] = animal;
+      }
 
       for (let i = 0; i < sorted.length; i++) {
         for (let j = 0; j < (sorted.length - i - 1); j++) {
@@ -124,13 +131,15 @@ const task2 = {
       return sorted;
     },
 
-    addAnimal(species, amount) {
+    addAnimal(species, amount = 1) {
+      typeof species !== 'string' ? species = species + '' : species;
+      typeof amount !== 'number' ? amount = +amount : amount;
       const animal = {
         name: species,
         count: amount,
       }
       this.zoo[this.zoo.length] = animal;
-      return this.zoo;
+      return undefined;
     },
 
     getAnimals() {
@@ -162,8 +171,7 @@ const task2 = {
           this.zoo = newZoo;
         }
       }
-
-      return this.zoo;
+      return undefined;
     },
 
     checkAnimal(name) {
@@ -176,3 +184,5 @@ const task2 = {
     },
   }
 }
+
+module.exports = task2;
