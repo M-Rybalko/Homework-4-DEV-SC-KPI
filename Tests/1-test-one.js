@@ -25,6 +25,4 @@ const test1 = () => {
   test(cases);
 }
 
-test1()
-
 module.exports = test1;
