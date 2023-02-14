@@ -6,8 +6,8 @@ const test = (cases) => {
   const assert = (fn, res) => {
 
     if (
-    typeof fn === typeof res && 
-    JSON.stringify(fn) === JSON.stringify(res)
+      typeof fn === typeof res && 
+      JSON.stringify(fn) === JSON.stringify(res)
     ) {
       passed++;
     }
