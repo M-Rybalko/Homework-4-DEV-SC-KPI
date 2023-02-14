@@ -1,3 +1,5 @@
+'use strict';
+
 const test = require('../test.js');
 const task1 = require('../Tasks/1-one.js');
 
