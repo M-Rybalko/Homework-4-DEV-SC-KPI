@@ -122,3 +122,5 @@ const task3 = {
     }
   }
 }
+
+module.exports = task3;
