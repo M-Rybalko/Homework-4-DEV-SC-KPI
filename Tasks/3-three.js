@@ -1,21 +1,21 @@
 'use strict';
 
 const task3 = {
-  string: '',
+  input: '',
   variant: 0,
 
   [Symbol.iterator](variant = this.variant) {
 
-    if (typeof this.string !== 'string') this.string += '';
+    if (typeof this.input !== 'string') this.input += '';
     if (typeof variant !== 'number') variant = +this.variant;
-    const string = this.string;
+    const input = this.input;
     let index = 0;
 
     if (variant === 1) {
       return {
         next() {
-          if (index * 2 < string.length) {
-            return { done: false, value: string[2 * index++]};
+          if (index * 2 < input.length) {
+            return { done: false, value: input[2 * index++]};
           }
           return { done: true};
         }
@@ -25,11 +25,11 @@ const task3 = {
       const iterated = [];
       let word = '';
 
-      for (let i = 0; i < string.length; i++) {
+      for (let i = 0; i < input.length; i++) {
 
-        if (wordEnds.includes(string[i]) ) {
+        if (wordEnds.includes(input[i]) ) {
 
-          while (wordEnds.includes(string[i + 1])) {
+          while (wordEnds.includes(input[i + 1])) {
             i++;
           }
 
@@ -38,10 +38,10 @@ const task3 = {
           i++;
         }
 
-        word += string[i];
+        word += input[i];
       }
 
-      if (wordEnds.includes(string[string.length - 1]) === false) {
+      if (wordEnds.includes(input[input.length - 1]) === false) {
         iterated.push(word);
       }
 
@@ -58,13 +58,13 @@ const task3 = {
       const iterated = [];
       let sentence = '';
 
-      for (let i = 0; i < string.length; i++) {
+      for (let i = 0; i < input.length; i++) {
 
-        if (sentenceEnds.includes(string[i]) ) {
+        if (sentenceEnds.includes(input[i]) ) {
           
           while (
-            sentenceEnds.includes(string[i + 1]) || 
-            string[i + 1] === ' '
+            sentenceEnds.includes(input[i + 1]) || 
+            input[i + 1] === ' '
           ) {
             i++;
           }
@@ -74,10 +74,10 @@ const task3 = {
           i++;
         }
 
-        sentence += string[i];
+        sentence += input[i];
       }
 
-      if (sentenceEnds.includes(string[string.length - 1]) === false) {
+      if (sentenceEnds.includes(input[input.length - 1]) === false) {
         iterated.push(sentence);
       }
 
@@ -93,10 +93,10 @@ const task3 = {
       const vowels = ['a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'];
       const iterated = [];
 
-      for (let i = 0; i < string.length; i++) {
+      for (let i = 0; i < input.length; i++) {
 
-        if (vowels.includes(string[i]) ) {
-          iterated.push(string[i]);
+        if (vowels.includes(input[i]) ) {
+          iterated.push(input[i]);
         }
 
       }
@@ -113,8 +113,8 @@ const task3 = {
     } else { 
       return {
         next() {
-          if (index < string.length) {
-            return { done: false, value: string[index++]};
+          if (index < input.length) {
+            return { done: false, value: input[index++]};
           }
           return { done: true};
         }
