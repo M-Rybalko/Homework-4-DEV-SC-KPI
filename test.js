@@ -5,20 +5,25 @@ const test = (cases) => {
 
   const assert = (fn, res) => {
 
-    if (
-      typeof fn === typeof res && 
-      JSON.stringify(fn) === JSON.stringify(res)
-    ) {
-      passed++;
+    try {
+      if (
+        typeof fn === typeof res && 
+        JSON.stringify(fn) === JSON.stringify(res)
+      ) {
+        passed++;
+      } else {
+        throw new Error;
+      }
+    } catch (err) {
+      console.log('Caught error on test ' + (passed + 1))
     }
-
   }
 
   for (const test of cases) {
     assert(...test);
   }
 
-  console.log('Passed: ' + passed + ' of ' + cases.length);
+  return passed;
 }
 
 module.exports = test;
