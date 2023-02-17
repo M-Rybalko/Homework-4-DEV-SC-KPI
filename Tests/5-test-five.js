@@ -57,6 +57,99 @@ const test5 = () => {
     total++;
   }
 
+  const student1 = {
+    name: 0,
+    surname: 'Rybalko',
+    grade: 1,
+    institute: 'FICT',
+    security: {
+      password: 'qwerty',
+      email: 'mail@gmail.com'
+    },
+    op: 96,
+    escp: 94,
+    math_an: 95,
+    ads: 100,
+    history: 100, 
+  }
+
+  const student2 = {
+    name: 'Max',
+    surname: 'Rybalko',
+    grade: '999',
+    institute: 'FICT',
+    security: {
+      password: 'qwerty',
+      email: 'mail@gmail.com'
+    },
+    op: 96,
+    escp: 94,
+    math_an: 95,
+    ads: 100,
+    history: 100, 
+  }
+
+  const student3 = {
+    name: 'Max',
+    surname: 'Rybalko',
+    grade: 1,
+    institute: 121,
+    security: {
+      password: 'qwerty',
+      email: 'mail@gmail.com'
+    },
+    op: 96,
+    escp: 94,
+    math_an: 95,
+    ads: 100,
+    history: 100, 
+  }
+
+  const student4 = {
+    name: 'Max',
+    surname: 'Rybalko',
+    grade: 1,
+    institute: 'FICT',
+    security: {
+      password: 'qwerty',
+      email: 'mail@gmail.com'
+    },
+    op: 96,
+    escp: NaN,
+    math_an: 95,
+    ads: 100,
+    history: 100, 
+  }
+
+  try {
+    task5.makeAccount(student1);
+  } catch {
+    passed++;
+    total++;
+  }
+
+  try {
+    task5.makeAccount(student2);
+  } catch {
+    passed++;
+    total++;
+  }
+
+  try {
+    task5.makeAccount(student3);
+  } catch {
+    passed++;
+    total++;
+  }
+
+  try {
+    task5.makeAccount(student4);
+  } catch {
+    passed++;
+    total++;
+  }
+
+
   passed += test(cases);
   total += cases.length;
   console.log('Passed: ' + passed + ' of ' + total);

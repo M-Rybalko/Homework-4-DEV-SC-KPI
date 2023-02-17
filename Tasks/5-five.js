@@ -8,10 +8,14 @@ const task5 = {
   makeAccount(student) {
     const {name, surname, grade, institute, security: {password, email}, ...subjects} = student;
 
-    if (typeof name !== 'string') return undefined ;
-    if (typeof surname !== 'string') return undefined ;
-    if (typeof institute !== 'string') return undefined ;
-    if (typeof grade !== 'number') return undefined;
+    if (typeof name !== 'string') throw new Error() ;
+    if (typeof surname !== 'string') throw new Error() ;
+    if (typeof institute !== 'string') throw new Error() ;
+    if (typeof grade !== 'number') throw new Error() ;
+
+    for (const subject of Object.values(subjects)) {
+      if ( isNaN(subject) || !isFinite(subject) || typeof subject !== 'number') throw new Error()
+    }
     
     const account = {
       username: this.makeUsername(name, surname),
