@@ -5,6 +5,9 @@ const task2 = require('../Tasks/2-two.js');
 
 const test2 = (variant) => {
   if (variant === 1) {
+    let passed = 0;
+    let total = 0;
+
     const cases = [
       // Tests for empty array
       [ task2.variant1.getAnimalCount(), 0 ],
@@ -39,11 +42,16 @@ const test2 = (variant) => {
         [ {name: 'cat', count: 15}, {name: 'lion', count: 1} ] 
       ],
     ]
-    console.log('Task 2 Variant 1')
-    test(cases);
+    console.log('Task 2 Variant 1');
+    passed += test(cases);
+    total += cases.length;
+    console.log('Passed: ' + passed + ' of ' + total);
   }
 
   if (variant === 2) {
+    let passed = 0;
+    let total = 0;
+
     const cases = [
       // Tests for empty array
       [ task2.variant2.getAnimalCount(), 0 ],
@@ -78,8 +86,11 @@ const test2 = (variant) => {
         [ {name: 'cat', count: 15}, {name: 'lion', count: 1} ] 
       ],
     ]
-    console.log('Task 2 Variant 2')
-    test(cases);
+
+    console.log('Task 2 Variant 2');
+    passed += test(cases);
+    total += cases.length;
+    console.log('Passed: ' + passed + ' of ' + total);
   }
 }
 
