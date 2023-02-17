@@ -41,7 +41,7 @@ const test2 = (variant) => {
       [ task2.variant1.getAnimals(), 
         [ {name: 'cat', count: 15}, {name: 'lion', count: 1} ] 
       ],
-    ]
+    ];
     console.log('Task 2 Variant 1');
     passed += test(cases);
     total += cases.length;
@@ -85,7 +85,7 @@ const test2 = (variant) => {
       [ task2.variant2.getAnimals(), 
         [ {name: 'cat', count: 15}, {name: 'lion', count: 1} ] 
       ],
-    ]
+    ];
 
     console.log('Task 2 Variant 2');
     passed += test(cases);

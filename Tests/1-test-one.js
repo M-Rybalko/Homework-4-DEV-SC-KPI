@@ -22,7 +22,7 @@ const test1 = () => {
         id: 'id',
       }), 3
     ],
-  ]
+  ];
   
   console.log('Task 1');
   passed += test(cases);

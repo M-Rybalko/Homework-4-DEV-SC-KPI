@@ -15,7 +15,7 @@ const test = (cases) => {
         throw new Error;
       }
     } catch (err) {
-      console.log('Caught error on test ' + (passed + 1))
+      console.log('Caught error')
     }
   }
 

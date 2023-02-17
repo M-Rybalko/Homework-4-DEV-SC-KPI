@@ -17,7 +17,7 @@ const test3 = () => {
     res.push(char);
   }
 
-  const cases0 = [ [res, ['f', 'a', 'l', 's', 'e']] ]
+  const cases0 = [ [res, ['f', 'a', 'l', 's', 'e'] ] ];
   passed += test(cases0);
   total += cases0.length;
 
@@ -27,7 +27,7 @@ const test3 = () => {
     res.push(char);
   }
 
-  const cases1 = [ [res, ['a', 'b', 'c', 'd']] ]
+  const cases1 = [ [res, ['a', 'b', 'c', 'd'] ] ];
   passed += test(cases1);
   total += cases1.length;
 
@@ -38,7 +38,7 @@ const test3 = () => {
     res.push(char);
   }
 
-  const cases2 = [ [res, ['a', 'b', 'c', 'd']] ]
+  const cases2 = [ [res, ['a', 'b', 'c', 'd'] ] ];
   passed += test(cases2);
   total += cases2.length;
 
@@ -50,7 +50,7 @@ const test3 = () => {
   for (const char of task3) {
     res.push(char);
   }
-  const cases3 = [ [res, ['M', 'n', 'y', 't', 'e', 's', '.'] ] ]
+  const cases3 = [ [res, ['M', 'n', 'y', 't', 'e', 's', '.'] ] ];
   passed += test(cases3);
   total += cases3.length;
 
@@ -62,7 +62,7 @@ const test3 = () => {
   for (const char of task3) {
     res.push(char);
   }
-  const cases4 = [ [res, ['Money', 'trees', 'is', 'the', 'perfect', 'place'] ] ]
+  const cases4 = [ [res, ['Money', 'trees', 'is', 'the', 'perfect', 'place'] ] ];
   passed += test(cases4);
   total += cases4.length;
 
@@ -74,7 +74,7 @@ const test3 = () => {
   for (const char of task3) {
     res.push(char);
   }
-  const cases5 = [ [res, ['Money', 'trees is', 'the perfect', 'place'] ] ]
+  const cases5 = [ [res, ['Money', 'trees is', 'the perfect', 'place'] ] ];
   passed += test(cases5);
   total += cases5.length;
 
@@ -86,7 +86,7 @@ const test3 = () => {
   for (const char of task3) {
     res.push(char);
   }
-  const cases6 = [ [res, ['O', 'e', 'y', 'E', 'e'] ] ]
+  const cases6 = [ [res, ['O', 'e', 'y', 'E', 'e'] ] ];
   passed += test(cases6);
   total += cases6.length;
 
