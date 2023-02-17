@@ -3,13 +3,16 @@
 const task5 = {
 
   students: new Map(),
-  passwords: {
-
-  },
+  passwords: {},
 
   makeAccount(student) {
     const {name, surname, grade, institute, security: {password, email}, ...subjects} = student;
 
+    if (typeof name !== 'string') return undefined ;
+    if (typeof surname !== 'string') return undefined ;
+    if (typeof institute !== 'string') return undefined ;
+    if (typeof grade !== 'number') return undefined;
+    
     const account = {
       username: this.makeUsername(name, surname),
       email: email,
