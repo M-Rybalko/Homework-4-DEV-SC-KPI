@@ -80,13 +80,13 @@ const test3 = () => {
 
   // Test for variant 4
 
-  task3.input = `Money trees...`
+  task3.input = `MOney trEes...`
   task3.variant = 4;
   res = []; 
   for (const char of task3) {
     res.push(char);
   }
-  const cases6 = [ [res, ['o', 'e', 'y', 'e', 'e'] ] ]
+  const cases6 = [ [res, ['O', 'e', 'y', 'E', 'e'] ] ]
   passed += test(cases6);
   total += cases6.length;
 
