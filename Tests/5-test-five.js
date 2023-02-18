@@ -152,6 +152,8 @@ const test5 = () => {
 
   passed += test(cases);
   total += cases.length;
+
+  console.log('Task 5');
   console.log('Passed: ' + passed + ' of ' + total);
 }
 

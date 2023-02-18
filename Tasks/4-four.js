@@ -4,13 +4,11 @@ const task4 = {
   object: {},
 
   set(key, value) {
-    if (typeof key !== 'string') key = JSON.stringify(key);
     this.object[key] = value;
     return;
   },
 
   get(key) {
-    if (typeof key !== 'string') key = JSON.stringify(key);
     if (this.object[key] ) {
       return this.object[key]
     }
@@ -18,12 +16,13 @@ const task4 = {
   },
 
   has(key) {
-    if (typeof key !== 'string') key = JSON.stringify(key);
-    return Object.keys(this.object).includes(key) ? true : false;
+    // if (typeof key === 'object') {
+
+    // }
+    return Object.keys(this.object).includes(key.toString()) ? true : false;
   },
 
   delete(key) {
-    if (typeof key !== 'string') key = JSON.stringify(key);
     if (this.object[key] ) {
       delete this.object[key];
       return true;
