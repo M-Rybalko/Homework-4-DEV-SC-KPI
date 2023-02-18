@@ -16,9 +16,6 @@ const task4 = {
   },
 
   has(key) {
-    // if (typeof key === 'object') {
-
-    // }
     return Object.keys(this.object).includes(key.toString()) ? true : false;
   },
 
