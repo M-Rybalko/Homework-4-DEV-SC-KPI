@@ -5,33 +5,25 @@ const task2 = {
     zoo: [],
 
     getAnimalCount(species) {
-      for (const animal of this.zoo) {
-
-        if(animal.name === species) return animal.count;
-        
-      }
-      return 0;
+      const requested = this.zoo.find(animal => animal.name === species);
+      return requested ? requested.count : 0;
     },
 
     getAllAnimalsCount() {
       let res = 0;
-
-      for (const animal of this.zoo) {
-        res += animal.count;
-      }
-
+      this.zoo.map( (animal) => res += animal.count);
       return res;
     },
 
     getAnimalsByCount(amount) {
-      const res = [];
-
-      for (const animal of this.zoo) {
-        if (animal.count === amount) {
-          res.push(animal.name);
-        }
+      amount = parseInt(amount);
+      if ( isNaN(amount) ) {
+        amount = 0;
       }
 
+      let res = [];
+      res = this.zoo.filter( (animal) => animal.count === amount);
+      res = res.map( (animal) => animal.name);
       return res;
     },
 
@@ -42,12 +34,19 @@ const task2 = {
 
     addAnimal(species, amount = 1) {
       typeof species !== 'string' ? species = species + '' : species;
-      typeof amount !== 'number' ? amount = +amount : amount;
+      amount = parseInt(amount);
+      if ( isNaN(amount) ) {
+        amount = 1;
+      }
       const animal = {
         name: species,
         count: amount,
-      }
-      this.zoo.push(animal);
+      };
+     
+      if (this.zoo.some( (element) => element.name === species ) ) {
+        const duplicate = this.zoo.find(animal => animal.name === species);
+        duplicate.count += amount;
+      } else this.zoo.push(animal);
       return undefined;
     },
 
@@ -56,13 +55,16 @@ const task2 = {
     },
 
     deleteAnimal(name) {
+      if (typeof name !== 'string') name = name + '';
 
       const searchFunc = (animal) => {
-        return animal.name === name;
+        return animal.name == name;
       }
 
       const toDelete = this.zoo.findIndex(searchFunc);
-      this.zoo.splice(toDelete, 1);
+      if (toDelete !== -1) {
+        this.zoo.splice(toDelete, 1);
+      }
       return undefined;
     },
 
@@ -100,6 +102,10 @@ const task2 = {
 
     getAnimalsByCount(amount) {
       const res = [];
+      amount = parseInt(amount);
+      if ( isNaN(amount) ) {
+        amount = 0;
+      }
 
       for (const animal of this.zoo) {
         if (animal.count === amount) {
@@ -133,12 +139,27 @@ const task2 = {
 
     addAnimal(species, amount = 1) {
       typeof species !== 'string' ? species = species + '' : species;
-      typeof amount !== 'number' ? amount = +amount : amount;
+      amount = parseInt(amount);
+
+      if ( isNaN(amount) ) {
+        amount = 1;
+      }
+
+      let present = false;
+      
       const animal = {
         name: species,
         count: amount,
       }
-      this.zoo[this.zoo.length] = animal;
+
+      for (let current of this.zoo) {
+        if (current.name === species) {
+          current.count += amount;
+          present = true;
+        }
+      }
+
+      if (present === false) this.zoo[this.zoo.length] = animal;
       return undefined;
     },
 
@@ -147,31 +168,27 @@ const task2 = {
     },
 
     deleteAnimal(name) {
+      if (typeof name !== 'string') name = name + '';
 
-      for (let i = 0; i < this.zoo.length; i++) {
-        if (name === this.zoo[i].name) {
-          const zooLeft = this.zoo;
-          const zooRight = [];
-          const newZoo = [];
+      let deleted = 0;
+      let current = 0;
+      let copy = [];
 
-          for (let j = i + 1; j < this.zoo.length; j++) {
-            zooRight[zooRight.length] = this.zoo[j];
-          }
+      for (const animal of this.zoo) {
+        copy[copy.length] = animal;
+      }
 
-          zooLeft.length = i;
-
-          for (const arg of zooLeft) {
-            newZoo[newZoo.length] = arg;
-          }
-
-          for (const arg of zooRight) {
-            newZoo[newZoo.length] = arg;
-          }
-
-          this.zoo = newZoo;
+      for (const animal of copy) {
+        if (animal.name !== name) {
+          this.zoo[current] = animal;
+          current++;
+        } else {
+          deleted++
         }
       }
-      return undefined;
+
+      this.zoo.length -= deleted;
+      return;
     },
 
     checkAnimal(name) {

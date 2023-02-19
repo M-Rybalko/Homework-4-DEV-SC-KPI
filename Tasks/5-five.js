@@ -6,16 +6,14 @@ const task5 = {
   passwords: {},
 
   makeAccount(student) {
+    if (Object.keys(student.security).length !== 2) throw new Error() ;
+
     const {name, surname, grade, institute, security: {password, email}, ...subjects} = student;
 
     if (typeof name !== 'string') throw new Error() ;
     if (typeof surname !== 'string') throw new Error() ;
     if (typeof institute !== 'string') throw new Error() ;
     if (typeof grade !== 'number') throw new Error() ;
-
-    for (const subject of Object.values(subjects)) {
-      if ( isNaN(subject) || !isFinite(subject) || typeof subject !== 'number') throw new Error()
-    }
     
     const account = {
       username: this.makeUsername(name, surname),
@@ -30,15 +28,23 @@ const task5 = {
   },
 
   makeUsername (name, surname) {
-    return name.concat(surname);
+    name = name.trim();
+    surname = surname.trim();
+    return name.concat(' ', surname);
   },
 
   makeAverageMark (subjects) {
     let average = 0;
     const marks = Object.values(subjects);
 
+    if (marks.length === 0) return 0;
+
+    for (const subject of marks) {
+      if (isNaN( parseInt( (subject))) || typeof subject !== 'number') throw new Error()
+    }
+
     for (const subject of marks ) {
-      average += subject;
+      average += parseInt(subject);
     }
 
     return average / marks.length;

@@ -24,13 +24,22 @@ const test2 = (variant) => {
 
       [ task2.variant1.addAnimal('cat', 15), ],
       [ task2.variant1.addAnimal('dog'), ],
-      [ task2.variant1.addAnimal('lion', '1'), ],
+      [ task2.variant1.addAnimal('lion', NaN), ],
+      [ task2.variant1.addAnimal('lion', 3.56), ],
+      [ task2.variant1.addAnimal(false, '2'), ],
+      [ task2.variant1.deleteAnimal(false), ],
+      [ task2.variant1.deleteAnimal('no one'), ],
       // Tests for filled array
       [ task2.variant1.getAnimalCount('dog'), 1 ],
-      [ task2.variant1.getAllAnimalsCount(), 17 ],
-      [ task2.variant1.getAnimalsByCount(1), [ 'dog', 'lion' ] ],
+      [ task2.variant1.getAllAnimalsCount(), 20 ],
+      [ task2.variant1.getAnimalsByCount(1), [ 'dog', ] ],
+      [ task2.variant1.getAnimalsByCount(1.99), [ 'dog', ] ],
+      [ task2.variant1.getAnimalsByCount('1.99'), [ 'dog', ] ],
+      [ task2.variant1.getAnimalsByCount(NaN), [] ],
+      [ task2.variant1.getAnimalsByCount(Infinity), [] ],
+
       [ task2.variant1.getSortedZoo(), 
-        [ {name: 'dog', count: 1}, {name: 'lion', count: 1}, {name: 'cat', count: 15} ] 
+        [ {name: 'dog', count: 1}, {name: 'lion', count: 4}, {name: 'cat', count: 15} ] 
       ],
 
       [ task2.variant1.checkAnimal('cat'), true ],
@@ -39,7 +48,7 @@ const test2 = (variant) => {
 
       [ task2.variant1.deleteAnimal('dog'), ],
       [ task2.variant1.getAnimals(), 
-        [ {name: 'cat', count: 15}, {name: 'lion', count: 1} ] 
+        [ {name: 'cat', count: 15}, {name: 'lion', count: 4} ] 
       ],
     ];
     console.log('Task 2 Variant 1');
@@ -68,14 +77,22 @@ const test2 = (variant) => {
 
       [ task2.variant2.addAnimal('cat', 15), ],
       [ task2.variant2.addAnimal('dog'), ],
-      [ task2.variant2.addAnimal('lion', '1'), ],
+      [ task2.variant2.addAnimal('lion', NaN), ],
+      [ task2.variant2.addAnimal('lion', 3.56), ],
+      [ task2.variant2.addAnimal(false, '2'), ],
+      [ task2.variant2.deleteAnimal(false), ],
+      [ task2.variant2.deleteAnimal('no one'), ],
       // Tests for filled array
       [ task2.variant2.getAnimalCount('dog'), 1 ],
-      [ task2.variant2.getAllAnimalsCount(), 17 ],
+      [ task2.variant2.getAllAnimalsCount(), 20 ],
       [ task2.variant2.getSortedZoo(), 
-        [ {name: 'dog', count: 1}, {name: 'lion', count: 1}, {name: 'cat', count: 15} ] 
+        [ {name: 'dog', count: 1}, {name: 'lion', count: 4}, {name: 'cat', count: 15} ] 
       ],
-      [ task2.variant2.getAnimalsByCount(1), [ 'dog', 'lion' ] ],
+      [ task2.variant2.getAnimalsByCount(1), [ 'dog' ] ],
+      [ task2.variant2.getAnimalsByCount(1.99), [ 'dog', ] ],
+      [ task2.variant2.getAnimalsByCount('1.99'), [ 'dog', ] ],
+      [ task2.variant2.getAnimalsByCount(NaN), [] ],
+      [ task2.variant1.getAnimalsByCount(Infinity), [] ],
 
       [ task2.variant2.checkAnimal('cat'), true ],
       [ task2.variant2.checkAnimal('dog'), true ],
@@ -83,7 +100,7 @@ const test2 = (variant) => {
 
       [ task2.variant2.deleteAnimal('dog'), ],
       [ task2.variant2.getAnimals(), 
-        [ {name: 'cat', count: 15}, {name: 'lion', count: 1} ] 
+        [ {name: 'cat', count: 15}, {name: 'lion', count: 4} ] 
       ],
     ];
 
