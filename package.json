@@ -1,0 +1,23 @@
+{
+  "name": "hw4",
+  "version": "1.0.0",
+  "description": "This is a fourth homework I'm doing as a trainee in KPI's DEV department of SC.\r The homework checks my knowledge of arrays, objects and their methods and symbol data type.\r Also it reviews my ability of creating testing functions and writing a clean code.",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M-Rybalko/Homework-4-DEV-SC-KPI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/M-Rybalko/Homework-4-DEV-SC-KPI/issues"
+  },
+  "homepage": "https://github.com/M-Rybalko/Homework-4-DEV-SC-KPI#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
